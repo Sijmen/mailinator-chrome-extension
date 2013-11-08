@@ -6,8 +6,14 @@ body {
 #form {
   margin-bottom: 0;
 }
-#inbox {
-  width: 300px;
+#account, .list{
+	width:		100%;
+}
+.list{
+	text-align:		center;
+}
+#inbox,body {
+  width: 500px;
   height: 250px;
   border: 0;
 }

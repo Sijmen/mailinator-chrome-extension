@@ -3,42 +3,17 @@
     <link href="style.css" media="screen" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="Math.uuid.js"></script>
-    <script type="text/javascript">
-      function randomAccount() {
-        localStorage['email_account'] = Math.uuid(8, 16) + '@mailinator.com';
-      }
-      function refresh() {
-        if (localStorage['email_account'] == null) {
-          randomAccount();
-        }
-        var account = localStorage['email_account'];
-        $('#account').val(account);
-        inbox.attr('src', 'http://www.mailinator.com/widget/mailin8r.jsp?w=280&h=230&b=' + account + '&f=true');
-      }
-      var inbox;
-      function bootstrap() {
-        $('#form').submit(function() {
-          localStorage['email_account'] = $('#account').val();
-          refresh();
-          return false;
-        });
-        inbox = $('<iframe id="inbox" marginwidth="0" marginheight="0" border="0" scrolling="no" frameborder="0" />').appendTo(document.body);
-
-        $('#random_account').click(function() {
-          randomAccount();
-          refresh();
-          return false;
-        });
-
-        refresh();
-      }
-      $(bootstrap);
-    </script>
+    <script type="text/javascript" src="app.js"></script>
   </head>
   <body>
     <form id="form">
       <input type="text" id="account" />
     </form>
-    <button id="random_account" type="submit">Random Account</button>
+    <button id="random_account" type="submit">New account for domain</button>
+    <div class="mailinator_inbox">
+      <table class="list">
+        <tr><th>From</th><th>Subject</th><th>Send</th></tr>
+      </table>
+    </div>
   </body>
 </html>
